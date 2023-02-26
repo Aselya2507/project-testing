@@ -60,9 +60,9 @@ jobs:
       - name: Run sonarqube
         if: ${{env.enable_sonar == 'true'}}
         run: sonar-scanner
-            -Dsonar.organization=${{ env.sonar_organization }}                              
-            -Dsonar.projectKey=${{ env.sonar_projectKey }}                         
-            -Dsonar.login=${{ env.sonar_login }}                                   
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}                              
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}                         
+            -Dsonar.login=${{ secrets.SONAR_TOKEN  }}                                   
             -Dsonar.host.url=https://sonarcloud.io
 
       - name: Build the image
