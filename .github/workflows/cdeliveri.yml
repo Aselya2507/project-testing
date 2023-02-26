@@ -83,4 +83,7 @@ jobs:
       - name: push
         run: docker push ${{ env.region }}-docker.pkg.dev/${{ env.project_id }}/${{ env.artifact_repository }}/${{ env.app_name }}:${{ env.tag_new_version }} 
 
-      
+      - name: Check Git Status
+        run: |
+          status="$(git status --short)"
+          [ -z "$status" ]
